@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProductController extends Controller
 {
@@ -23,14 +25,17 @@ class ProductController extends Controller
             'name' => 'required|string',
             'price' => 'required',
             'description' => 'required',
+            'produk' => 'required'
             //  'category_id' => 'required',
             // 'brand_id' => 'required',
         ]);
-
-        $product =Product::create([
+        // $produk = Storage::putFileAs('produk', new File('produk'), '$request->produk');
+        // $produk = $request->file('produk')->store('produks');
+        $product = Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'produk' => $request->file('produk')->store('produks'),
             // 'category_id' => $request->category_id,
             // 'brand_id' => $request->brand_id,
         ]);

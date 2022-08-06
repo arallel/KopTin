@@ -11,7 +11,7 @@
     </div>
     <div class="container">
       <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
-        <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+        <div class="col-xl-7 col-lg-5 col-md-7 mx-auto">
           <div class="card z-index-0">
             <div class="card-header text-center pt-4">
               <h5>Create Product</h5>
@@ -40,7 +40,7 @@
               </div>
             </div>
             <div class="card-body">
-              <form action="{{ route('product.store') }}" role="form" method="POST">
+              <form action="{{ route('product.store') }}" role="form" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-3">
                   <input type="text" name="name" placeholder="nama produk" 
@@ -87,14 +87,14 @@
                                 </select>
                 </div> --}}
                 <div class="mb-3">
-                    {{-- <input type="file" class="form-control" name="image"
-                                    class="@error('image') is-invalid @enderror"
-                                    value="{{ old('image') }}" autocomplete="off" required>
-                                @error('image')
+                    <input type="file" class="form-control" name="produk"
+                                    class="@error('produk') is-invalid @enderror"
+                                    value="{{ old('produk') }}" autocomplete="off" required>
+                                @error('produk')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror --}}
+                                @enderror
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">submit</button>

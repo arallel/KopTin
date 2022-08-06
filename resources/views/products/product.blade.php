@@ -27,7 +27,7 @@
                         {{ $i++ }}
                       </td>
                       <td align="left">
-                        {{ $product->name }}
+                        <img src="storage/{{ $product->produk }}" height="110" width="110">
                       </td>
                       <td class=" text-sm">
                         {{ $product->name }}
