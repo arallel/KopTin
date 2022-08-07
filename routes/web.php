@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\userpagecontroller;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 /*
@@ -14,10 +15,14 @@ use App\Models\Product;
 |
 */
 Route::view('dashboard', 'index')->name('dashboard');
-route::redirect('/','product');
+// route::redirect('/','product');
 route::get('product/detail/{id}', function ($id) {
     return view('products.detail', ['product' => Product::findOr($id)]);
 });
-Route::resource('product', ProductController::class);
 Route::resource('category', CategoryController::class);
+Route::resource('product', ProductController::class);
+Route::controller(userpagecontroller::class)->group(function () {
+    Route::get('/','index')->name('index.user');
+   
+});
 

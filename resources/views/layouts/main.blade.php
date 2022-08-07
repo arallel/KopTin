@@ -13,7 +13,7 @@
   <link href="assetdashboard/css/nucleo-icons.css" rel="stylesheet" />
   <link href="assetdashboard/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
   <link href="assetdashboard/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="assetdashboard/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />

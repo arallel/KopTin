@@ -15,39 +15,18 @@
   <link href="{{asset('assetdashboard/css/nucleo-icons.css')}}" rel="stylesheet" />
   <link href="{{asset('assetdashboard/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-<script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>
-  <link href="{{asset('assetdashboard/css/nucleo-svg.css')}}" rel="stylesheet" />
+<script src="https://kit.fontawesome.com/8f35130a2a.js" crossorigin="anonymous"></script>  <link href="{{asset('assetdashboard/css/nucleo-svg.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('assetdashboard/css/argon-dashboard.css?v=2.0.4')}}" rel="stylesheet" />
 </head>
 <body class="">
-<main class="main-content  mt-0">
-    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signup-cover.jpg'); background-position: top;">
-      <span class="mask bg-gradient-dark opacity-6"></span>
-      @yield('form')
-    </div>
-</main>
-  <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <footer class="footer py-5">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mb-4 mx-auto text-center">
-          
-        </div>
-        <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
-          
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-8 mx-auto text-center mt-1">
-          
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
-  <!--   Core JS Files   -->
-  <script src="{{asset('assetdashboard/js/core/popper.min.js')}}"></script>
+@yield('userpage')
+
+
+
+
+
+<script src="{{asset('assetdashboard/js/core/popper.min.js')}}"></script>
   <script src="{{asset('assetdashboard/js/core/bootstrap.min.js')}}"></script>
   <script src="{{asset('assetdashboard/js/plugins/perfect-scrollbar.min.js')}}"></script>
   <script src="{{asset('assetdashboard/js/plugins/smooth-scrollbar.min.js')}}"></script>
@@ -66,4 +45,4 @@
   <script src="{{asset('assetdashboard/js/argon-dashboard.min.js?v=2.0.4')}}"></script>
 </body>
 
-</html>
+</html>  
