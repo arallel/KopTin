@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,5 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::view('dashboard', 'index')->name('dashboard');
 route::redirect('/','product');
+route::get('product/detail/{id}', function ($id) {
+    return view('products.detail', ['product' => Product::findOr($id)]);
+});
 Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
 

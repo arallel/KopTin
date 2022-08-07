@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('price');
-            $table->string('description');
-            $table->string('produk');
-             $table->foreignId('category_id')->nullable();
+            $table->text('description');
+            $table->text('produk');
+             $table->foreignId('category_id')->default(1);
             $table->smallInteger('status')->default(1);
             $table->timestamps();
         });

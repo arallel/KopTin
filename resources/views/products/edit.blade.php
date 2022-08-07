@@ -69,7 +69,7 @@
                                     <option value="0" {{ $product->status == 0 ? 'selected':'' }}>Tidak Tersedia</option>
                                 </select>
                             </div>
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="category">Kategori</label>
                                 <select name="category_id" class="form-control" required>
                                     @foreach ($categories as $category)
@@ -77,7 +77,7 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="image">Gambar</label>
                                 <br>
                                 <input type="file" name="image"

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,9 +16,15 @@ class ProductController extends Controller
         return view('products.product', compact('products'));
     }
 
+    public function detail($id)
+    {
+        $product = Product::find($id);
+        return view('products.detail', compact('product'));
+    }
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
     public function store(Request $request)
     {
@@ -25,8 +32,9 @@ class ProductController extends Controller
             'name' => 'required|string',
             'price' => 'required',
             'description' => 'required',
-            'produk' => 'required'
-            //  'category_id' => 'required',
+            'status' => 'required',
+            'produk' => 'required',
+            'category_id' => 'required',
             // 'brand_id' => 'required',
         ]);
         // $produk = Storage::putFileAs('produk', new File('produk'), '$request->produk');
@@ -35,22 +43,23 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'status' => $request->status,
             'produk' => $request->file('produk')->store('produks'),
-            // 'category_id' => $request->category_id,
+            'category_id' => $request->category_id,
             // 'brand_id' => $request->brand_id,
         ]);
 
-        if($product)
-        {
+        if ($product) {
             return redirect()->route('product.index')->with(['success', 'Produk Berhasil Ditambahkan']);
-        }else{
+        } else {
             return redirect()->back()->withInput()->with(['error', 'Produk Gagal Ditambahkan']);
         }
     }
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
     public function update(Request $request, $id)
     {
@@ -58,8 +67,9 @@ class ProductController extends Controller
             'name' => 'required|string',
             'price' => 'required',
             'description' => 'required',
+            'status' => 'required',
             // 'image' => 'required',
-            // 'category_id' => 'required',
+            'category_id' => 'required',
             // 'brand_id' => 'required',
         ]);
         $product = Product::findOrFail($id);
@@ -68,15 +78,15 @@ class ProductController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'description' => $request->description,
+            'status' => $request->status,
             // 'image' => $request->image,
-            // 'category_id' => $request->category_id,
+            'category_id' => $request->category_id,
             // 'brand_id' => $request->brand_id,
         ]);
 
-        if($product)
-        {
+        if ($product) {
             return redirect()->route('product.index')->with(['success', 'Produk Berhasil Ditambahkan']);
-        }else{
+        } else {
             return redirect()->back()->withInput()->with(['error', 'Produk Gagal Ditambahkan']);
         }
     }
@@ -85,10 +95,9 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        if($product)
-        {
+        if ($product) {
             return redirect()->route('product.index')->with(['success' => 'Produk Berhasil Dihapus!']);
-        }else{
+        } else {
             return redirect()->route('product.index')->with(['error' => 'Produk Gagal Dihapus']);
         }
     }
