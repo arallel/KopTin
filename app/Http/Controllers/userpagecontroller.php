@@ -9,6 +9,7 @@ class userpagecontroller extends Controller
 {
     public function index()
     {
-        return view('userpage.index');
+        $products = Product::all();
+        return view('userpage.index', compact('products'));
     }
 }
