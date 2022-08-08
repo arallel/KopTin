@@ -17,8 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('nis')->unique();
+            $table->string('username')->unique();
+            $table->string('kelas')->nullable();
+            $table->integer('jurusan')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->smallInteger('role')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

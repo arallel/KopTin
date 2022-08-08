@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\userpagecontroller;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,10 @@ Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
 Route::controller(userpagecontroller::class)->group(function () {
     Route::get('/','index')->name('index.user');
-   
+
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

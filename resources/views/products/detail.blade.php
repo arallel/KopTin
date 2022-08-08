@@ -7,8 +7,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="https://assets-a1.kompasiana.com/items/album/2021/04/21/dinkes-sebut-ratusan-kantin-sekolah-kurang-sehat-m-14211-607feece349d1d45cc3803a2.jpeg"
-                                    class="img-fluid" alt="">
+                                <img src="storage/{{ $product->produk }}"
+                                    >
                             </div>
                             <div class="col-md-6">
                                 <h6><a class="decoration-none" href="{{ route('product.index') }}">Home</a> /

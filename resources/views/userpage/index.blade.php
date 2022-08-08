@@ -18,11 +18,10 @@
               <button class="btn bg-gradient-primary my-1 me-1">Search</button>
             </div>
           <div class="col-auto m-auto">
-            <a class="text-white cursor-pointer">
+            <a href="" class="text-white cursor-pointer">
               <i class="fas fa-sign-in"></i>
-
+              <label class="text-white">Login</label>
             </a>
-            <label class="text-white">login</label>
           </div>
           <div class="col-auto m-auto">
             <a class="text-white cursor-pointer position-relative">
@@ -30,31 +29,37 @@
             </a>
           </div>
         </div>
-      </ul>
+      </ul>*
     </div>
   </div>
 </nav>
 <!-- End Navbar -->
 <main  class="main-content">
-  <div class="container px-0 py-4 mx-6">  
-    <div class="row row-cols-1 row-cols-md-4 mt-5 g-6">
-  <div class="col">
+    <div class="container px-0 py-4 mx-6">
+        <div class="row row-cols-1 row-cols-md-4 mt-5 g-6">
+            @forelse ($products as $product)
+            <div class="col">
     <div class="card"  style="width: 20rem;">
-      <img src="imgdummy/makanandummy.jpg" class="card-img-top" alt="...">
+      <img src="storage/{{ $product->produk }}"  class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-         <a href="#" class="btn btn-icon btn-3 btn-outline-primary" type="button">
+        <h5 class="card-title">{{ $product->name }}</h5>
+        <p class="card-text">{{ $product->description }}</p>
+         <a href="product/detail/{{ $product->id }}" class="btn btn-primary">Go somewhere</a>
+          <a href="#" class="btn btn-icon btn-3 btn-outline-primary" type="button">
   <span class="btn-inner--icon"><i class="fas fa-shopping-cart"></i></span>
   <span class="btn-inner--text">tambah ke keranjang</span>
 </a>
-         <a href="#" class="btn btn-primary">beli</a>
+         <a href="product/detail/{{ $product->id }}" class="btn btn-primary">beli</a>
        </div>
     </div>
-  </div>
-  
+</div>
+@empty
+{{ "product tidak ada" }}
+@endforelse
+
 </div>
     </div>
   </div>
 </main>
 @endsection
+
