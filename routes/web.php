@@ -18,8 +18,12 @@ use Illuminate\Support\Facades\Auth;
 */
 Route::view('dashboard', 'index')->name('dashboard');
 // route::redirect('/','product');
-route::get('product/detail/{id}', function ($id) {
-    return view('products.detail', ['product' => Product::findOr($id)]);
+// route::get('product/detail/{id}', function ($id) {
+//     return view('products.detail', ['product' => Product::findOr($id)]);
+// });
+Route::controller(ProductController::class)->group(function () {
+    Route::get('product/detail/{id}','detail')->name('detail.produk');
+
 });
 Route::resource('category', CategoryController::class);
 Route::resource('product', ProductController::class);
